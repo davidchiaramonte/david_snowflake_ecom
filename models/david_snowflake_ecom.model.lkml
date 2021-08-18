@@ -14,6 +14,20 @@ explore: distribution_centers {}
 
 explore: etl_jobs {}
 
+explore: users_pdt {
+  view_name: users
+  join: users_dt {
+    type: inner
+    relationship: one_to_one
+    sql_on: ${users.id}=${users_dt.id} ;;
+  }
+  join: users_dt2 {
+    type: inner
+    relationship: one_to_one
+    sql_on: ${users_dt.id}=${users_dt2.id} ;;
+  }
+}
+
 explore: events {
   join: users {
     type: left_outer

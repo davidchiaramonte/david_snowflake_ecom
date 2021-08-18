@@ -79,7 +79,7 @@ view: order_items {
       second,
       year
     ]
-    sql: ${TABLE}."SHIPPED_AT" ;;
+    sql: cast(${TABLE}."SHIPPED_AT" as TIMESTAMP_NTZ(9)) ;;
   }
 
   dimension: status {
